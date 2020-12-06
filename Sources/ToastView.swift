@@ -3,7 +3,6 @@ import UIKit
 open class ToastView: UIView {
 
   // MARK: Properties
-
   open var text: String? {
     get { return self.textLabel.text }
     set { self.textLabel.text = newValue }
@@ -16,7 +15,6 @@ open class ToastView: UIView {
   
 
   // MARK: Appearance
-
   /// The background view's color.
   override open dynamic var backgroundColor: UIColor? {
     get { return self.backgroundView.backgroundColor }
@@ -52,7 +50,7 @@ open class ToastView: UIView {
     case .pad: return 60
     case .tv: return 90
     case .carPlay: return 30
-    #if compiler(>=5.3)
+    #if swift(>=5.3)
     case .mac: return 60
     #endif
     // default values
@@ -69,7 +67,7 @@ open class ToastView: UIView {
     case .pad: return 40
     case .tv: return 60
     case .carPlay: return 20
-    #if compiler(>=5.3)
+    #if swift(>=5.3)
     case .mac: return 40
     #endif
     // default values
@@ -118,7 +116,6 @@ open class ToastView: UIView {
   }
 
   // MARK: UI
-
   private let backgroundView: UIView = {
     let `self` = UIView()
     self.backgroundColor = UIColor(white: 0, alpha: 0.7)
@@ -138,7 +135,7 @@ open class ToastView: UIView {
       case .pad: return .systemFont(ofSize: 16)
       case .tv: return .systemFont(ofSize: 20)
       case .carPlay: return .systemFont(ofSize: 12)
-      #if compiler(>=5.3)
+      #if swift(>=5.3)
       case .mac: return .systemFont(ofSize: 16)
       #endif
       // default values
@@ -153,7 +150,6 @@ open class ToastView: UIView {
 
 
   // MARK: Initializing
-
   public init() {
     super.init(frame: .zero)
     self.isUserInteractionEnabled = false
@@ -167,7 +163,6 @@ open class ToastView: UIView {
 
 
   // MARK: Layout
-
   override open func layoutSubviews() {
     super.layoutSubviews()
     let containerSize = ToastWindow.shared.frame.size
